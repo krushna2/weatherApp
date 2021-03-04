@@ -1,0 +1,22 @@
+{
+  "name": "weatherappnodejs",
+  "version": "1.0.0",
+  "description": "this is weather app using node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krushna2/weatherApp.git"
+  },
+  "author": "krushna dhawale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krushna2/weatherApp/issues"
+  },
+  "homepage": "https://github.com/krushna2/weatherApp#readme",
+  "dependencies": {
+    "requests": "^0.3.0"
+  }
+}

@@ -3,13 +3,17 @@ const fs = require("fs");
 
 var requests = require('requests');
 const replaceVal = (tempval,orgVal)=>{
-    let temperature = tempval.replace("{%tempvalue%}",orgVal.main.temp-273.15);
-    const minTemp = orgVal.main.temp_min-273.15;
+    let temp=orgVal.main.temp-273.15;
+    let realTemp=temp.toFixed(2);
+    let temperature = tempval.replace("{%tempvalue%}",realTemp);
+    let minTemp = orgVal.main.temp_min-273.15;
+    let minTemp1 = minTemp.toFixed(2);
     // const minTempCelcius =(minTemp−273.15 );
-    const maxTemp = orgVal.main.temp_max-273.15;
+    let maxTemp = orgVal.main.temp_max-273.15;
+    let maxTemp1 = maxTemp.toFixed(2);
     // const maxTempCelcius = (maxTemp - 32) / 1.8;
-    temperature = temperature.replace("{%tempmin%}",minTemp);
-    temperature = temperature.replace("{%tempmax%}", maxTemp);
+    temperature = temperature.replace("{%tempmin%}",minTemp1);
+    temperature = temperature.replace("{%tempmax%}", maxTemp1);
     temperature = temperature.replace("{%location%}",orgVal.name);
     temperature = temperature.replace("{%country%}",orgVal.sys.country);
     temperature = temperature.replace("{%tempstatus%}",orgVal.weather[0].main);
@@ -34,4 +38,4 @@ const server = http.createServer((req,res)=>{
         });
     }
 });
-server.listen(8000,"localhost");
+server.listen(7000,"localhost");
